@@ -177,6 +177,70 @@ The containers do not automatically share their files system
 
 ![creating-docker-images.gif](./imgs/creating-docker-images.gif)
 
-# 017. Building a Dockerfile
+# 016. Building a Dockerfile
 
 [redis-image Dokcerfile](./redis-image/Dockerfile)
+
+# 017. Dockerfile Teardown
+
+![dockerfile-teardown.png](./imgs/dockerfile-teardown.png)
+
+# 018. What's a Base Image
+
+![what-a-base-img-1.png](./imgs/what-a-base-img-1.png)
+
+![what-a-base-img-2.png](./imgs/what-a-base-img-2.png)
+
+# 019. The Build Process in Details
+
+why use new command?
+~~~
+docker build .
+~~~
+
+the build command it's will be use to take docker file and generating it
+
+![the-build-process-in-detail-1.png](./imgs/the-build-process-in-detail-1.png)
+
+![the-build-process-in-detail.gif](./imgs/the-build-process-in-detail.gif)
+
+# 020. A Brief Recap
+
+![a-brief-recap.gif](./imgs/a-brief-recap.gif)
+
+# 021. Rebuild with Cache
+
+![rebuild-with-cache.gif](./imgs/rebuild-with-cache.gif)
+
+# 022. Tagging an Image
+
+![tagging-an-image-1.png](./imgs/tagging-an-image-1.png)
+
+the convention to tagging an Image
+
+![tagging-an-image-2.png](./imgs/tagging-an-image-2.png)
+
+eg:
+~~~
+docker build -t localhost/redis:latest .
+
+# and run
+
+docker run localhost/redis
+~~~
+
+# 023. Manual Image Generation with Docker Commit
+
+In common, we use image to create container. We can manually create a container
+runs command inside container and generate an image. In straight word we can do
+manually the same thing Dockerfile does.
+
+![manual-image-generate-with-docker-commit.gif](./imgs/manual-image-generate-with-docker-commit.gif)
+
+eg:
+~~~
+# IMPORTANT YOU DON'T WANT USE THIS WAY IN GENERAL
+# BETTER USE Dockerfile APPROACH
+
+docker commit -c 'CMD["redis-server"]' 4b263884282
+~~~
