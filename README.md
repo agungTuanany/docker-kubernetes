@@ -172,3 +172,11 @@ docker exec -it 4b263884282 sh
 The containers do not automatically share their files system
 
 ![container-isolation.gif](./imgs/container-isolation.gif)
+
+# 015. Creating Docker Images
+
+![creating-docker-images.gif](./imgs/creating-docker-images.gif)
+
+# 017. Building a Dockerfile
+
+[redis-image Dokcerfile](./redis-image/Dockerfile)
