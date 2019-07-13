@@ -179,7 +179,7 @@ The containers do not automatically share their files system
 
 # 016. Building a Dockerfile
 
-[redis-image Dokcerfile](./redis-image/Dockerfile)
+[redis-image Dockerfile](./redis-image/Dockerfile)
 
 # 017. Dockerfile Teardown
 
@@ -244,3 +244,7 @@ eg:
 
 docker commit -c 'CMD["redis-server"]' 4b263884282
 ~~~
+
+# 024. Making Real Projects with Docker
+
+[simple-web](./simple-web/)
