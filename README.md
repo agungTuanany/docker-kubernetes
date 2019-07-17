@@ -248,3 +248,92 @@ docker commit -c 'CMD["redis-server"]' 4b263884282
 # 024. Making Real Projects with Docker
 
 [simple-web](./simple-web/)
+
+# 025. Base Image Issues
+
+![base-image-issues-1.png](./imgs/base-image-issues-1.png)
+
+To solve the issue "npm not available on a base image"
+
+~~~
+#Dockerfile
+FROM node: alpine
+~~~
+
+alpine is a term in docker role for a small incompact images. Many popular
+repository were going to offer alpine version of their images.
+
+# 027 A few Missing Files
+
+None of the files inside your root directory are available inside the container by
+default. Completely segmented out unless you specifically allowed inside your
+Dockerfile.
+
+![few-missing-files-1.png](./imgs/few-missing-files-1.png)
+
+To solve 'no such file or directory'
+
+![copying-build-files-1.png](./imgs/copying-build-files-1.png)
+
+eg:
+~~~
+#Dockerfile
+# Install some dependencies
+
+COPY ./ ./
+
+#Default command
+.....
+~~~
+
+# 028. Container Port Mapping
+
+![container-port-mapping-1.png](./imgs/container-port-mapping-1.png)
+
+We do not setup port-porting inside Dockerfile, a port-porting stuff is strictly
+a run time constrain, in other words its something we only change when we run
+a container or start a container.
+
+![container-port-mapping-2.png](./imgs/container-port-mapping-2.png)
+
+eg:
+~~~
+docker run -p 8080:8080 localhost/simpleweb
+~~~
+
+# 029. Specifying a Working Directory
+
+![specifying-a-working-directory-1.png](./imgs/specifying-a-working-directory-1.png)
+
+eg:
+~~~
+# Dockerfile
+
+WORKDIR /usr/app
+~~~
+
+to check the working directory is no longer in image root directory we can check by
+
+eg:
+
+~~~
+#open 1st cli
+docker run -p 5001:5001 <initial-name>/<initial-docker-container>
+
+#open 2nd cli to check
+docker exec -it <id-container> sh
+~~~
+
+# Unnecessary Rebuilds
+how to avoid having completely reinstall all dependencies just because we made
+a change in source code file?
+
+eg:
+~~~
+#Dockerfile
+
+COPY ./package.json ./    #just copying current specify directory to WORKDIR directory
+RUN npm install           # just run once
+
+COPY ./ ./                # copy over everything else except package.json
+~~~
