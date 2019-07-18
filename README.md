@@ -324,7 +324,7 @@ docker run -p 5001:5001 <initial-name>/<initial-docker-container>
 docker exec -it <id-container> sh
 ~~~
 
-# Unnecessary Rebuilds
+# 030. Unnecessary Rebuilds
 how to avoid having completely reinstall all dependencies just because we made
 a change in source code file?
 
@@ -336,4 +336,73 @@ COPY ./package.json ./    #just copying current specify directory to WORKDIR dir
 RUN npm install           # just run once
 
 COPY ./ ./                # copy over everything else except package.json
+~~~
+
+# 031. Introducing Docker Compose
+
+![introducing-docker-compose-1.png](./imgs/introducing-docker-compose-1.png)
+
+# 032. Docker Compose Files
+
+![docker-compose-files-1.png](./imgs/docker-compose-files-1.png)
+
+![docker-compose-files-2.png](./imgs/docker-compose-files-2.png)
+
+![docker-compose-files-3.png](./imgs/docker-compose-files-3.png)
+
+# 033. Networking with Docker
+
+![networking-with-docker-compose-1.png](./imgs/networking-with-docker-compose-1.png)
+
+~~~
+#docker-compose.yml
+services:
+  redis-server:     # 1st image
+    image: 'redis'
+  node-app:         # 2nd image
+    ...
+    ...
+    ...
+
+# app.js
+const client = redis.createClient({
+  // add docker images
+  host: 'redis-server',
+  // default redis-server
+  port: 6379                # specify port for redis-server
+});
+~~~
+
+# 034. Docker Compose Command
+
+![docker-compose-commands-1.png](./imgs/docker-compose-commands-1.png)
+
+# 035. Stopping Docker Compose Containers
+
+![stopping-docker-compose-containers-1.png](./imgs/stopping-docker-compose-containers-1.png)
+
+# 036. Container Maintenance with Compose
+
+![automatic-container-restarts-1.png](./imgs/automatic-container-restarts-1.png)
+
+~~~
+#docker-compose.yml
+
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always       # Restart Policies
+    build: .
+    ports:
+      - "5001:5001"
+~~~
+
+# 037. Container Status with Docker Compose
+
+eg:
+~~~
+#in cli with folder related docker-compose.yml
+docker-compose ps
 ~~~

@@ -6,7 +6,7 @@ const app = express();
 const client = redis.createClient({
   // add docker images
   host: 'redis-server',
-  // by default redis-server
+  // default redis-server
   port: 6379
 });
 client.set('visits', 0);
