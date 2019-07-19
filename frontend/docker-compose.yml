@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 3001:3000
+    volumes:
+      - /app/node_modules
+      - .:/app
+  # for test purpose
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    # override command to run test
+    command: ["npm", "run", "test"]
+
+
