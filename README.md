@@ -528,3 +528,24 @@ so we make two different images to solve this issue.
 ## 049. Running Nginx
 
 ![running-Nginx-1.png](./imgs/running-Nginx-1.png)
+
+# == Continuous Integration and Deployment with AWS ==
+
+## 050. Travis CI Setup
+
+### What is Travis CI?
+
+__Travis CI__  is a hosted, distributed continuous integration service used to
+build and test projects hosted at Github. __Travis CI__ automatically detects when
+a commit has been made and push to a github respository that is using __Travis CI__, and each time this happens, it will try to build the project and run tests.
+
+## 051. Travis YML file Configuration
+
+![travis-yml-file-config-1.png](./imgs/travis-yml-file-config-1.png)
+
+[.travis.yml file](./frontend/.travis.yml)
+
+~~~
+#.travis.yml
+-- --coverage   # to make automatically run command exit
+~~~
