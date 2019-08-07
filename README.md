@@ -533,11 +533,15 @@ so we make two different images to solve this issue.
 
 ## 050. Travis CI Setup
 
+![travis-ci-setup-1.png](./imgs/travis-ci-setup-1.png)
+
 ### What is Travis CI?
 
-__Travis CI__  is a hosted, distributed continuous integration service used to
-build and test projects hosted at Github. __Travis CI__ automatically detects when
-a commit has been made and push to a github respository that is using __Travis CI__, and each time this happens, it will try to build the project and run tests.
+**Travis CI** is a hosted, distributed continuous integration service used to
+build and test projects hosted at Github. **Travis CI** automatically detects
+when a commit has been made and push to a Github repository that is using
+**Travis CI**, and each time this happen, it will try to build project and run
+test.
 
 ## 051. Travis YML file Configuration
 
@@ -547,5 +551,88 @@ a commit has been made and push to a github respository that is using __Travis C
 
 ~~~
 #.travis.yml
+
+script :
+  - docker build -e CI=true -t <images-name>/<container-name>:<env> npm run test -- --coverage
+
+# added a options
 -- --coverage   # to make automatically run command exit
+
+-e CI=true      # it tells docker the env list
 ~~~
+
+## 052. AWS Elastic Beanstalk
+
+![elastic-beanstalk-1.png](./imgs/elastic-beanstalk-1.png)
+
+The benefit of using **Elastic Beanstalk** is monitors the amount of the traffic
+that come into our virtual machines and automatically scale everything up.
+
+## 053. Travis Config for Deployment
+
+![travis-config-for-deployment-1.png](./imgs/travis-config-for-deployment-1.png)
+
+for bucket_name:
+
+![travis-config-for-deployment-2.png](./imgs/travis-config-for-deployment-2.png)
+eg:
+~~~
+# add this into .travis.yml
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"                                             # the region you choose
+  app: "docker"                                                   # a name that you setup in aws
+  env: "Docker-env"                                               # a name that revere as the environment
+  bucket_name: "elasticbeanstalk-us-west-2-<your-app-id>"
+  bucket_path: "docker"                                           # the name same as app names
+  on:
+    branch: master
+~~~
+
+## 054. Automated Deployments
+
+Set an API_KEYS to give access to our aws account over Travis-CI.
+
+![automated-deployments-1.gif](./imgs/automated-deployments-1.gif)
+
+At travis CI add your access_key_id and secret_access_id,
+
+![automated-deployments-2.gif](./imgs/automated-deployments-2.gif)
+~~~
+# add this into .travis.yml
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"                                             # the region you choose
+  app: "docker"                                                   # a name that you setup in aws
+  env: "Docker-env"                                               # a name that revere as the environment
+  bucket_name: "elasticbeanstalk-us-west-2-<your-app-id>"
+  bucket_path: "docker"                                           # the name same as app names
+  on:
+    branch: master
+  # a new line setting
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"                                     # make sure you put double quote
+~~~
+
+## 055. Exposing Ports Through the Dockerfile | for production-env deployment
+
+![exposing-ports-through-the-dockerfile-1.gif](./imgs/exposing-ports-through-the-dockerfile-1.gif)
+~~~
+# at Dockerfile | production-env
+
+EXPOSE 80   # is a communication for each developers
+~~~
+
+if you hit an error when deploy to aws, maybe you forget to config EXPOSE at Dockerfile
+
+![exposing-ports-through-the-dockerfile-2.gif](./imgs/exposing-ports-through-the-dockerfile-2.gif)
+
+At *aws-elascticbeanstalk* is little bit different , *elasticbeanstalk* when it's
+start up docker container is gonna look at **Dockerfile** and gonna look to
+**EXPOSE** instruction, and what ever port you listed in there is what
+*elasticbeanstalk* is going to map directly automatically
+
+
