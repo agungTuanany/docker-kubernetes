@@ -632,7 +632,48 @@ if you hit an error when deploy to aws, maybe you forget to config EXPOSE at Doc
 
 At *aws-elascticbeanstalk* is little bit different , *elasticbeanstalk* when it's
 start up docker container is gonna look at **Dockerfile** and gonna look to
-**EXPOSE** instruction, and what ever port you listed in there is what
-*elasticbeanstalk* is going to map directly automatically
+**EXPOSE** instruction, and what ever port you listed in there, is what
+*elasticbeanstalk* is going to map directly automatically.
 
+## DONT FORGET TO TERMINATE the ELeastic Beanstalk app! for AWS not charge some money
+
+# == Building a Multi Container Application ==
+
+## 056. Single Container Deployment Issues
+
+![single-container-deployment-issues-1.png](./imgs/single-container-deployment-issues-1.png)
+
+### THIS IS A BAD APPROACH
+We build the images multiple times, we build out our images over **travis-CI**
+when we run our task, and we also build image a second time after we push all
+over code through **travis-CI** over to **Elastic Beanstalk**. This is not the
+best approach because we essentially taking web-server or web-apps and we using
+it to build the images, chance are we really want the web-server to be just
+**concern running the web-server** and not to take any extra process of building
+images. So we concern to not allow the images to build in active running
+web-server.
+
+## 056. Application Overview
+
+![multi-container-application-overview-1.gif](./imgs/multi-container-application-overview-1.gif)
+
+## 057. Application Architecture | Backend Architecture
+
+![multi-container-application-architecture-1.png](./imgs/multi-container-application-architecture-1.png)
+
+![multi-container-application-architecture-2.png](./imgs/multi-container-application-architecture-2.png)
+~~~
+Nginx               # to do some routing
+React Server        # get some front-end mockup | assets
+Express Server      # to set backend API
+Worker              # a separate backend NodeJS process
+Redis               # a memory data-store for housing temporary value
+Postgres            # a database which is very similar with mysql
+~~~
+
+### a flow behind the scene
+
+![multi-container-application-architecture-3.png](./imgs/multi-container-application-architecture-3.png)
+
+## 057. Worker Process Setup
 

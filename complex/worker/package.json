@@ -1,0 +1,22 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "a multi container apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "keywords": [
+    "container",
+    "images",
+    "react-app"
+  ],
+  "author": "Agung Tuanany",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^1.19.1",
+    "redis": "^2.8.0"
+  }
+}
