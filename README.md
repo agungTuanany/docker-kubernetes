@@ -675,5 +675,4 @@ Postgres            # a database which is very similar with mysql
 
 ![multi-container-application-architecture-3.png](./imgs/multi-container-application-architecture-3.png)
 
-## 057. Worker Process Setup
 
