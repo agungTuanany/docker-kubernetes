@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 
 // Postgres Client Setup
-const pgCLient = new Pool({
+const pgClient = new Pool({
   user: keys.pgUser,
   host: keys.pgHost,
   databse: keys.pgDatabase,
@@ -21,7 +21,7 @@ const pgCLient = new Pool({
   port: keys.pgPort
 });
 
-pgCLient.on('error', () => console.og('PG connection was disrupted with error'));
+pgClient.on('error', () => console.og('PG connection was disrupted with error'));
 
 // table postgrees
 pgClient
@@ -31,7 +31,7 @@ pgClient
 
 // Redis Client Setup
 const redisClient = redis.createClient({
-  host: kyes.redisHost,
+  host: keys.redisHost,
   port: keys.redisPort,
   retry_strategy: () => 1000
 });
@@ -55,15 +55,15 @@ app.get('/values/all', async (req, res) => {
  * cause the redis library for NodeJS doesn't have out of box 'promise support'
  */
 app.get('values/current', async (req, res) => {
-  redisCLient.hgetall('values', (err, values) => {
+  redisClient.hgetall('values', (err, values) => {
     res.send(values);
   });
 });
 
-app.post('/values', aynsc (req, res) => {
+app.post('/values', async (req, res) => {
   const index = req.body.value.index;
 
-  if (parseInt(index) => 40) {
+  if (parseInt(index) > 40) {
     return res.status(422).send('Index too high');
   }
 
