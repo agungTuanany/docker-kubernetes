@@ -1,22 +1,21 @@
 {
-  "name": "worker",
+  "name": "server",
   "version": "1.0.0",
-  "description": "a multi container apps | worker",
+  "description": "multi container apps | server side",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "start": "node index.js"
   },
-  "keywords": [
-    "container",
-    "images",
-    "react-app"
-  ],
   "author": "Agung Tuanany",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "expess": "0.0.1-security",
     "nodemon": "^1.19.1",
+    "pg": "^7.12.1",
     "redis": "^2.8.0"
   }
 }
