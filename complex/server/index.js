@@ -25,7 +25,7 @@ pgClient.on('error', () => console.og('PG connection was disrupted with error'))
 
 // table postgrees
 pgClient
-  .query('CREATE TABLE IF NOT EXIST values (number INT)')
+  .query('CREATE TABLE IF NOT EXISTS values (number INT)')
   .catch(err => console.log(err));
 
 

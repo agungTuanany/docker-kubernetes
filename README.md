@@ -703,4 +703,28 @@ services:
 ~~~
 or see:
 
-[dockcer-compose.yml](./complex/docker-compose.yml)
+[docker-compose.yml](./complex/docker-compose.yml)
+
+## 061. Environment Variables with docker-compose
+
+![environment-variables-with-docker-compose-1.png](./imgs/environment-variables-with-docker-compose-1.png)
+
+~~~
+variableName=value
+~~~
+
+when you use this command its mean you run 2 step process,
+
+1. first step process
+  you build an images, that's kind of preparation part create a new images.
+
+2. second step process
+  when some point on the future we run a container, we actually take an
+  images and create instance of container out of it.
+
+~~~
+variableName
+~~~
+
+So if you have env-var setup on your machine like some secret API-KEY that maybe
+you want to use this syntax
