@@ -728,3 +728,14 @@ variableName
 
 So if you have env-var setup on your machine like some secret API-KEY that maybe
 you want to use this syntax
+
+## 062. Nginx Path Routing
+
+![nginx-path-routing-1.gif](./imgs/nginx-path-routing-1.gif)
+
+## 063. Routing with Nginx
+![routing-with-nginx-1.png](./imgs/routing-with-nginx-1.png)
+
+or see the files:
+
+[nginx-route-default.conf](./complex/nginx/default.conf)
