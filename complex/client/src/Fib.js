@@ -1,4 +1,4 @@
-import React, ( Component ) from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 
@@ -32,7 +32,7 @@ class Fib extends Component {
     await axios.post('/api/values', {
       index: this.state.index
     });
-    this,setState({ index: '' });
+    this.setState({ index: '' });
   }
 
   renderSeenIndexes() {
@@ -73,3 +73,5 @@ class Fib extends Component {
     )
   }
 }
+
+export default Fib;

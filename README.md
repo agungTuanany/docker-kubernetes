@@ -635,7 +635,7 @@ start up docker container is gonna look at **Dockerfile** and gonna look to
 **EXPOSE** instruction, and what ever port you listed in there, is what
 *elasticbeanstalk* is going to map directly automatically.
 
-## DONT FORGET TO TERMINATE the ELeastic Beanstalk app! for AWS not charge some money
+## DONT FORGET TO TERMINATE the ELastic Beanstalk app! for AWS not charge some money
 
 # == Building a Multi Container Application ==
 
@@ -653,11 +653,11 @@ it to build the images, chance are we really want the web-server to be just
 images. So we concern to not allow the images to build in active running
 web-server.
 
-## 056. Application Overview
+## 057. Application Overview
 
 ![multi-container-application-overview-1.gif](./imgs/multi-container-application-overview-1.gif)
 
-## 057. Application Architecture | Backend Architecture
+## 058. Application Architecture | Backend Architecture
 
 ![multi-container-application-architecture-1.png](./imgs/multi-container-application-architecture-1.png)
 
@@ -675,4 +675,14 @@ Postgres            # a database which is very similar with mysql
 
 ![multi-container-application-architecture-3.png](./imgs/multi-container-application-architecture-3.png)
 
+# == Dockerizing Multiple Service ==
 
+## 059. Dockerizing a React App - Again!
+
+![dockerizing-a-react-app-again-1.png](./imgs/dockerizing-a-react-app-again-1.png)
+
+The purpose is to make **dev** Dockerfiles for each one is if we make a change
+**client**, **server**, **worker** we ensure to not rebuild the entire images to
+get changes into a fact that makes really slow development workflow.
+
+![dockerizing-a-react-app-again-2.png](./imgs/dockerizing-a-react-app-again-2.png)
