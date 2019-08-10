@@ -686,3 +686,21 @@ The purpose is to make **dev** Dockerfiles for each one is if we make a change
 get changes into a fact that makes really slow development workflow.
 
 ![dockerizing-a-react-app-again-2.png](./imgs/dockerizing-a-react-app-again-2.png)
+
+## 060. Adding Postgres as a Service
+
+![adding-postgres-as-a-service-1.png](./imgs/adding-postgres-as-a-service-1.png)
+
+eg:
+~~~
+# create docker-compose.yml file on complex root dir and write on it:
+
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: postgres-complex
+~~~
+or see:
+
+[dockcer-compose.yml](./complex/docker-compose.yml)
