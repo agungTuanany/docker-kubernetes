@@ -12,8 +12,7 @@ services:
       context: ./server
     volumes:
       - /app/node_modules               # a command for not try to overwrite this folder
-      - ./server:/app
-    # see the default documentation for redis & postgres at https://hub.docker.com/
+      - ./server:/app                   # see the default documentation for redis & postgres at https://hub.docker.com/
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379                 # default redis port
@@ -22,4 +21,18 @@ services:
       - PGDATABASE=postgres
       - PGPASSWORD=postgres_password
       - PGPORT=5432
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+  worker:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./worker
+    volumes:
+      - /app/node_modules
+      - ./worker:/app
 
