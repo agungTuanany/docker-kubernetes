@@ -34,6 +34,6 @@ docker run worker/docker-react
 ~~~
 # see in the root folder there's docker-compose.yml file
 # run cli
-dokcer-compose up
+docker-compose up
 ~~~
 

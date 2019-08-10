@@ -3,3 +3,13 @@ services:
   postgres:
     image: 'postgres:latest'
     container_name: postgres-complex
+  redis:
+    images: 'redis:latest'
+    container_name: redis-complex
+  server:
+    build:                              # specify build
+      dockerfile: Dockerfile.dev
+      contex: ./server
+    volumes:
+      - /app/node_modules               # a command for not try to overwrite this folder
+      - ./server:/app
