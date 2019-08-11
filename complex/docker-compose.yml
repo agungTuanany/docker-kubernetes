@@ -6,7 +6,15 @@ services:
   redis:
     image: 'redis:latest'
     container_name: redis-complex
-  server:
+  nginx:
+    container_name: nginx-complex
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
+  api:
     build:                              # specify build
       dockerfile: Dockerfile.dev
       context: ./server
