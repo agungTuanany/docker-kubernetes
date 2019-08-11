@@ -18,6 +18,7 @@ services:
     build:                              # specify build
       dockerfile: Dockerfile.dev
       context: ./server
+    container_name: server-complex
     volumes:
       - /app/node_modules               # a command for not try to overwrite this folder
       - ./server:/app                   # see the default documentation for redis & postgres at https://hub.docker.com/
@@ -33,6 +34,7 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./client
+    container_name: client-complex
     volumes:
       - /app/node_modules
       - ./client:/app
@@ -40,7 +42,11 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./worker
+    container_name: worker-complex
     volumes:
       - /app/node_modules
       - ./worker:/app
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
 
