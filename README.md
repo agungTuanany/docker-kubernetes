@@ -739,3 +739,9 @@ you want to use this syntax
 or see the files:
 
 [nginx-route-default.conf](./complex/nginx/default.conf)
+
+# == A Continuous Integration workflow for Multiple Images ==
+
+## 0.63. Production Multi-container Deployment
+
+![production-multi-container-deployment-1.png](./imgs/production-multi-container-deployment-1.png)
