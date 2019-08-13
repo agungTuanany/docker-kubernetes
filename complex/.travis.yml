@@ -14,3 +14,12 @@ after_success:
   - docker build -t daun/multi-server ./server
   - docker build -t daun/multi-worker ./worker
 
+# Log in to docker CLI
+  - echo $"DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+# Take those images and push them to docker hub
+  - docker push daun/multi-client
+  - docker push daun/multi-nginx
+  - docker push daun/multi-server
+  - docekr push daun/multi-worker
+
