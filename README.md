@@ -742,6 +742,14 @@ or see the files:
 
 # == A Continuous Integration workflow for Multiple Images ==
 
-## 0.63. Production Multi-container Deployment
+## 063. Production Multi-container Deployment
 
 ![production-multi-container-deployment-1.png](./imgs/production-multi-container-deployment-1.png)
+
+## 064. Multiple Nginx Instances
+
+![multiple-nginx-instance-1.gif](./imgs/multiple-nginx-instance-1.gif)
+
+## 065. Altering Nginx's Listen Port
+
+On production environment nginx server has to listen on port **3000**
