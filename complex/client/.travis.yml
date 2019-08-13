@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t daun/multiple-docker-react -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true daun/multiple-docker-react npm test -- --coverage
+
+after_success:
+  - docker build -t daun/multi-client ./client
+  - docker build -t daun/multi-nginx ./nginx
+  - docker build -t daun/multi-server ./server
+  - docker build -t daun/multi-worker ./worker
+
