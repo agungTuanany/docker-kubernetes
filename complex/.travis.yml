@@ -9,17 +9,17 @@ script:
   - docker run -e CI=true daun/multiple-docker-react npm test -- --coverage
 
 after_success:
-  - docker build -t daun/multi-client ./client
-  - docker build -t daun/multi-nginx ./nginx
-  - docker build -t daun/multi-server ./server
-  - docker build -t daun/multi-worker ./worker
+  - docker build -t <your-docker-username>/multi-client ./client
+  - docker build -t <your-docker-username>/multi-nginx ./nginx
+  - docker build -t <your-docker-username>/multi-server ./server
+  - docker build -t <your-docker-username>/multi-worker ./worker
 
 # Log in to docker CLI
   - echo $"DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 # Take those images and push them to docker hub
-  - docker push daun/multi-client
-  - docker push daun/multi-nginx
-  - docker push daun/multi-server
-  - docekr push daun/multi-worker
+  - docker push <your-docker-username>/multi-client
+  - docker push <your-docker-username>/multi-nginx
+  - docker push <your-docker-username>/multi-server
+  - docker push <your-docker-username>/multi-worker
 

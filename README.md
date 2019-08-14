@@ -759,3 +759,31 @@ On production environment nginx server has to listen on port **3000**
 ![travis-configuration-setup-1.png](./imgs/travis-configuration-setup-1.png)
 
 [.travis.yml](./complex/.travis.yml) for multi-images
+
+## 066. Pushing Images to Docker Hub
+
+![pushing-images-to-docker-hub-1.png](./imgs/pushing-images-to-docker-hub-1.png)
+
+eg:
+```
+# in .travis.yml
+# ATTENTION ON DETAIL
+# change your-docker-name as your docker profile
+
+after_success:
+  - docker build -t <your-docker-username>/multi-client ./client
+  - docker build -t <your-docker-username>/multi-nginx ./nginx
+  - docker build -t <your-docker-username>/multi-server ./server
+  - docker build -t <your-docker-username>/multi-worker ./worker
+
+# Log in to docker CLI
+  - echo $"DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+# Take those images and push them to docker hub
+  - docker push <your-docker-username>/multi-client
+  - docker push <your-docker-username>/multi-nginx
+  - docker push <your-docker-username>/multi-server
+  - docker push <your-docker-username>/multi-worker
+
+
+```
