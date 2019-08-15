@@ -807,3 +807,10 @@ a port-mapping, and some associated information.
 ```
 AWS EB      # AWS ELASTIC-BEANSTALK
 ```
+
+## 067. Finding Docs Container Definitions
+
+Is not immediately clear when you start reading AWS documentation to how to
+customize **Dockerrun.aws.json**. So lets look the AWS documentation,
+
+![finding-docs-on-container-definition-1.gif](./imgs/finding-docs-on-container-definition-1.gif)
