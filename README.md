@@ -41,31 +41,32 @@ hard-drive.
 ![create-and-run-container-1.png](./imgs/create-and-run-container-1.png)
 
 eg:
-~~~
+```
 docker run hello-world
-~~~
+```
+
 
 ## 002. Overriding Default Commands
 
 ![overriding-default-command-1.png](./imgs/overriding-default-command-1.png)
 
 eg:
-~~~
+```
 docker run busybox echo hello world!
-~~~
+```
 
 ## 003. Listing Running Containers
 
 ![listing-running-containers-1.png](./imgs/listing-running-containers-1.png)
 
 eg:
-~~~
+```
 docker ps
 
 #or
 
 docker ps --all
-~~~
+```
 
 ## 004. Container Lifecycle
 
@@ -74,7 +75,7 @@ docker ps --all
 ![container-lifecycle-2.png](./imgs/container-lifecycle-2.png)
 
 eg:
-~~~
+```
 # create a container
 
   docker create redis
@@ -82,30 +83,30 @@ eg:
 # start a container
 
   docker start 4b263884282
-~~~
+```
 
 ## 005. Restarting Stopped Container
 
 eg:
-~~~
+```
 docker start -a 4b263884282
-~~~
+```
 
 ## 006. Removing Stopped Containers
 
 eg:
-~~~
+```
 docker system prune
-~~~
+```
 
 ## 007. Retrieving log Outputs
 
 ![retrieving-log-outputs-1.png](./imgs/retrieving-log-outputs-1.png)
 
 eg:
-~~~
+```
 docker log 4b263884282
-~~~
+```
 
 ## 008. Stopping Containers
 
@@ -127,9 +128,9 @@ redis-server container to run together
 ![executing-command-in-running-containers-1.png](./imgs/executing-command-in-running-containers-1.png)
 
 eg:
-~~~
+```
 docker exec -it 4b263884282 redis-cli
-~~~
+```
 
 ## 011. The Purpose of the IT flag
 
@@ -140,7 +141,7 @@ are running is running inside a virtual machine running Linux.
 
 The IT flag is two separate flag
 
-~~~
+```
 -it
 
 # or
@@ -149,7 +150,7 @@ The IT flag is two separate flag
 
  -i, --interactive          Keep STDIN open even if not attached
  -t, --tty                  Allocate a pseudo-TTY | make sure all the text nicely format | auto-complete
-~~~
+```
 
 ## 012. Getting a Command Prompt in a Container
 
@@ -161,9 +162,9 @@ execute inside the container.
 ![getting-a-command-prompt-in-a-container-1.png](./imgs/getting-a-command-prompt-in-a-container-1.png)
 
 eg:
-~~~
+```
 docker exec -it 4b263884282 sh
-~~~
+```
 
 ## 013. Starting with a Shell
 
@@ -198,9 +199,9 @@ The containers do not automatically share their files system
 ## 019. The Build Process in Details
 
 why use new command?
-~~~
+```
 docker build .
-~~~
+```
 
 the build command it's will be use to take docker file and generating it
 
@@ -225,13 +226,13 @@ the convention to tagging an Image
 ![tagging-an-image-2.png](./imgs/tagging-an-image-2.png)
 
 eg:
-~~~
+```
 docker build -t localhost/redis:latest .
 
 # and run
 
 docker run localhost/redis
-~~~
+```
 
 ## 023. Manual Image Generation with Docker Commit
 
@@ -242,13 +243,12 @@ manually the same thing Dockerfile does.
 ![manual-image-generate-with-docker-commit.gif](./imgs/manual-image-generate-with-docker-commit.gif)
 
 eg:
-~~~
+```
 # IMPORTANT YOU DON'T WANT USE THIS WAY IN GENERAL
 # BETTER USE Dockerfile APPROACH
 
 docker commit -c 'CMD["redis-server"]' 4b263884282
-~~~
-
+```
 
 # == Making Real Projects with Docker ==
 
@@ -709,9 +709,9 @@ or see:
 
 ![environment-variables-with-docker-compose-1.png](./imgs/environment-variables-with-docker-compose-1.png)
 
-~~~
+```
 variableName=value
-~~~
+```
 
 when you use this command its mean you run 2 step process,
 
@@ -722,9 +722,9 @@ when you use this command its mean you run 2 step process,
   when some point on the future we run a container, we actually take an
   images and create instance of container out of it.
 
-~~~
+```
 variableName
-~~~
+```
 
 So if you have env-var setup on your machine like some secret API-KEY that maybe
 you want to use this syntax
@@ -765,10 +765,10 @@ On production environment nginx server has to listen on port **3000**
 ![pushing-images-to-docker-hub-1.png](./imgs/pushing-images-to-docker-hub-1.png)
 
 eg:
-```
+``` yaml
 # in .travis.yml
 # ATTENTION ON DETAIL
-# change your-docker-name as your docker profile
+# change <your-docker-username> as your docker profile
 
 after_success:
   - docker build -t <your-docker-username>/multi-client ./client
@@ -784,6 +784,26 @@ after_success:
   - docker push <your-docker-username>/multi-nginx
   - docker push <your-docker-username>/multi-server
   - docker push <your-docker-username>/multi-worker
+```
 
+# == Multi Container Deployment to AWS ==
 
+## 066. Multi Container Definition Files
+
+We have a couple different folder in each of them has a separate a Dockerfile,
+so any time we want to run multiple separate containers on **AWS EB** we need to
+create a special file.
+
+The new file going to be a JSON file, that to tell **EB** exactly where to pull
+images from, what resources to allocate for each one, how to setup
+a port-mapping, and some associated information.
+![multi-container-definition-file-1.gif](./imgs/multi-container-definition-file-1.gif)
+
+#### What is the different between *docker-compose.yaml* and *Dockerrun.aws.json*?
+
+**docker-compose.yaml** have direction how to build an images and
+**Dockerrun.aws.json** the image has been build just specify images to use.
+
+```
+AWS EB      # AWS ELASTIC-BEANSTALK
 ```
