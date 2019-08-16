@@ -910,3 +910,10 @@ to each other.
 
 ![elastiCache-redis-creation-1.gif](./imgs/elastiCache-redis-creation-1.gif)
 
+## 074. Creating a Custom Security Group
+
+![creating-a-custom-security-group-1.gif](./imgs/creating-a-custom-security-group-1.gif)
+
+```
+rds-launch-wizard   # a new security group automated created when you make postgress instances
+```
