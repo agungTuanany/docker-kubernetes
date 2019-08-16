@@ -884,14 +884,14 @@ VPC     # Virtual Private cloud
 
 ![overview-of-aws-vpc-and-security-groups-3.gif](./imgs/overview-of-aws-vpc-and-security-groups-3.gif)
 
-**Security Group (firewall Rules)**: is a rules describing what different what
-different services or sources of internet traffic can connect to different
-services running inside of your **VPC**
+**Security Group (firewall Rules)**: is a rules describing what different
+services or sources of internet traffic can connect to different services
+running inside your **VPC's**
 
 ![overview-of-aws-vpc-and-security-groups-4.gif](./imgs/overview-of-aws-vpc-and-security-groups-4.gif)
 
 **Q**: Now we understand what **VPC's** is and **Security Group** is, how are we
-going to form a connection between **EB Instance** **RDS (Postgress)** and **EC
+going to form a connection between **EB Instance** with **RDS (Postgress)** and **EC
 (Redis)**?
 
 **A**: we gonna create a new security group, and new security group is going to
@@ -902,5 +902,7 @@ And Security group essentially says if another AWS instance belong to a new
 security group then let the traffic flow through and let different services talk
 to each other.
 
+## 072. RDS Databases Creation
 
+![rds-databases-creation-1.gif](./imgs/rds-databases-creation-1.gif)
 
