@@ -814,3 +814,30 @@ Is not immediately clear when you start reading AWS documentation to how to
 customize **Dockerrun.aws.json**. So lets look the AWS documentation,
 
 ![finding-docs-on-container-definition-1.gif](./imgs/finding-docs-on-container-definition-1.gif)
+
+```json
+#Dockerrun.aws.json
+{
+"AWSEBDockerrunVersion":2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "<your-docker-id>/multi-client",
+      "hostname": "client"       # it's name same at your docker-compose.yml services
+      "essential": false         # if we remakrs with true and this container ever crashes all the other container in this group will be close-down
+    },
+    {
+      "name": "server",
+      "image": "<your-docker-id>/mulit-server",
+      "hostname": "api"          # renaming hostnmae from server, cause Nginx try to redirect traffic upstream
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "<your-docker-id>/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    }
+  ]
+}
+```
