@@ -906,3 +906,7 @@ to each other.
 
 ![rds-databases-creation-1.gif](./imgs/rds-databases-creation-1.gif)
 
+## 073. ElastiCache Redis Creation
+
+![elastiCache-redis-creation-1.gif](./imgs/elastiCache-redis-creation-1.gif)
+
