@@ -866,8 +866,41 @@ customize **Dockerrun.aws.json**. So lets look the AWS documentation,
 ![creating-the-EB-environment-1.gif](./imgs/creating-the-EB-environment-1.gif)
 
 ## 070. Managed Data Service Providers
+
 ![managed-data-service-providers-1.png](./imgs/managed-data-service-providers-1.png)
 
 ![managed-data-service-providers-2.png](./imgs/managed-data-service-providers-2.png)
 
 ![managed-data-service-providers-3.png](./imgs/managed-data-service-providers-3.png)
+
+## 071. Overview of AWS VPC's and Security Groups
+
+![overview-of-aws-vpc-and-security-groups-1.gif](./imgs/overview-of-aws-vpc-and-security-groups-1.gif)
+
+```
+VPC     # Virtual Private cloud
+```
+![overview-of-aws-vpc-and-security-groups-2.gif](./imgs/overview-of-aws-vpc-and-security-groups-2.gif)
+
+![overview-of-aws-vpc-and-security-groups-3.gif](./imgs/overview-of-aws-vpc-and-security-groups-3.gif)
+
+**Security Group (firewall Rules)**: is a rules describing what different what
+different services or sources of internet traffic can connect to different
+services running inside of your **VPC**
+
+![overview-of-aws-vpc-and-security-groups-4.gif](./imgs/overview-of-aws-vpc-and-security-groups-4.gif)
+
+**Q**: Now we understand what **VPC's** is and **Security Group** is, how are we
+going to form a connection between **EB Instance** **RDS (Postgress)** and **EC
+(Redis)**?
+
+**A**: we gonna create a new security group, and new security group is going to
+say essentially as a rule let any traffic access this instances if it belong to
+the security group and we gonna attached it to all three of this different
+services. So all the services is gonna belong to this one common security group.
+And Security group essentially says if another AWS instance belong to a new
+security group then let the traffic flow through and let different services talk
+to each other.
+
+
+
