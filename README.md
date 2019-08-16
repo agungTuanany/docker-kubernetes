@@ -837,7 +837,23 @@ customize **Dockerrun.aws.json**. So lets look the AWS documentation,
       "image": "<your-docker-id>/multi-worker",
       "hostname": "worker",
       "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "<your-docker-id>/multi-nginx",
+      "hostname": "nginx"        # just optional require because no other services need to directly access nginx
+      "essential": true          # if this container crash with any reason all container  must be automatically shutdown at the same time
+      "portMappings": [
+        {
+          "hostPort": 80,        # open up a port on the host or on the machine
+          "containerPort": 80    # default nginx mapped port from host
+        }
+      ],
+      "links": ["client", "server"] # forming links to from nginx over to the client container and server container
     }
   ]
 }
 ```
+## 068. Forming Container Links
+
+![forming-container-links-1.png](./imgs/forming-container-links-1.png)

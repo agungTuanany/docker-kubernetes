@@ -18,6 +18,19 @@
       "image": "tuanany73/multi-worker",
       "hostname": "worker",
       "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "tuanany/multi-ngnix",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
     }
   ]
 }
