@@ -823,13 +823,13 @@ customize **Dockerrun.aws.json**. So lets look the AWS documentation,
     {
       "name": "client",
       "image": "<your-docker-id>/multi-client",
-      "hostname": "client"       # it's name same at your docker-compose.yml services
+      "hostname": "client",      # it's name same at your docker-compose.yml services
       "essential": false         # if we remakrs with true and this container ever crashes all the other container in this group will be close-down
     },
     {
       "name": "server",
       "image": "<your-docker-id>/mulit-server",
-      "hostname": "api"          # renaming hostnmae from server, cause Nginx try to redirect traffic upstream
+      "hostname": "api",          # renaming hostnmae from server, cause Nginx try to redirect traffic upstream
       "essential": false
     },
     {
@@ -841,15 +841,15 @@ customize **Dockerrun.aws.json**. So lets look the AWS documentation,
     {
       "name": "nginx",
       "image": "<your-docker-id>/multi-nginx",
-      "hostname": "nginx"        # just optional require because no other services need to directly access nginx
-      "essential": true          # if this container crash with any reason all container  must be automatically shutdown at the same time
+      "hostname": "nginx",       # just optional require because no other services need to directly access nginx
+      "essential": true,         # if this container crash with any reason all container  must be automatically shutdown at the same time
       "portMappings": [
         {
           "hostPort": 80,        # open up a port on the host or on the machine
           "containerPort": 80    # default nginx mapped port from host
         }
       ],
-      "links": ["client", "server"] # forming links to from nginx over to the client container and server container
+      "links": ["client", "server"] # forming links from nginx over to the client container and server container
     }
   ]
 }
@@ -857,3 +857,17 @@ customize **Dockerrun.aws.json**. So lets look the AWS documentation,
 ## 068. Forming Container Links
 
 ![forming-container-links-1.png](./imgs/forming-container-links-1.png)
+
+## 069. Creating the EB Environment
+
+!! **ATTENTION** when you create a project without a free-plane, make sure you
+**DELETE** any project or AWS will charge any instances.
+
+![creating-the-EB-environment-1.gif](./imgs/creating-the-EB-environment-1.gif)
+
+## 070. Managed Data Service Providers
+![managed-data-service-providers-1.png](./imgs/managed-data-service-providers-1.png)
+
+![managed-data-service-providers-2.png](./imgs/managed-data-service-providers-2.png)
+
+![managed-data-service-providers-3.png](./imgs/managed-data-service-providers-3.png)
