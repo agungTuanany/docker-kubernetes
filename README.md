@@ -917,3 +917,17 @@ to each other.
 ```
 rds-launch-wizard   # a new security group automated created when you make postgress instances
 ```
+
+## 075. Applying Security Groups to Resources
+
+**ElastiCache (redis)**
+
+![applying-security-groups-to-resources-elastiCache-1.gif](./imgs/applying-security-groups-to-resources-elastiCache-1.gif)
+
+**AMAZON RDS (Postgres)**
+
+![applying-security-groups-to-resources-rds-1.gif](./imgs/applying-security-groups-to-resources-rds-1.gif)
+
+**EB Instances**
+
+![applying-security-groups-to-resources-eb-1.gif](./imgs/applying-security-groups-to-resources-eb-1.gif)
