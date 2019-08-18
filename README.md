@@ -973,3 +973,6 @@ deploy:
 
 ![container-memory-allocations-1.gif](./imgs/container-memory-allocations-1.gif)
 
+## 080. Cleaning Up AWS Resources
+
+![cleaning-up-aws-resources-1.gif](./imgs/cleaning-up-aws-resources-1.gif)
