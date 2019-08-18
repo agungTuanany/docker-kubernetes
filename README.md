@@ -968,3 +968,8 @@ deploy:
   secret_access_key:
     secure: $AWS_SECRET_KEY
 ```
+
+## 079. Container Memory Allocations
+
+![container-memory-allocations-1.gif](./imgs/container-memory-allocations-1.gif)
+
