@@ -931,3 +931,15 @@ rds-launch-wizard   # a new security group automated created when you make postg
 **EB Instances**
 
 ![applying-security-groups-to-resources-eb-1.gif](./imgs/applying-security-groups-to-resources-eb-1.gif)
+
+## 076. Setting Environment Variables
+
+![setting-environment-variables-1.gif](./imgs/setting-environment-variables-1.gif)
+
+**ATTENTION**
+- When you put your Environment properties in **EB** the values didn't hidden, so
+when you entry properties, potentially other people come to this page can see
+database password.
+
+- ElastiCache Redis at **Primary Endpoint**, we do not copy the port.
+
