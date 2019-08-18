@@ -3,6 +3,10 @@
 This course from Stephen teach how to create and deploy any web apps into a Web
 services.
 
+## Index
+
+###  [kubernetes](#==-kubernetes-==)
+
 # What is Docker?
 
 Docker is a platform or ecosystem around creating and running containers
@@ -26,6 +30,7 @@ a very specific program.
 for example a NODEJS, NGINX, or REDIS etc
 
 ![what-is-image-1.png](./imgs/what-is-image-1.png)
+
 # What is a Container in Docker ?
 
 Is a instance of an Image to runs a program.
@@ -976,3 +981,21 @@ deploy:
 ## 080. Cleaning Up AWS Resources
 
 ![cleaning-up-aws-resources-1.gif](./imgs/cleaning-up-aws-resources-1.gif)
+
+# == kubernetes ==
+
+![the-why-and-what-of-kubernetes-1.gif](./imgs/the-why-and-what-of-kubernetes-1.gif)
+
+# What is Kubernetes?
+
+Is a system for running many different containers over multiple different
+machines
+
+![the-why-and-what-of-kubernetes-2.gif](./imgs/the-why-and-what-of-kubernetes-2.gif)
+
+# Why use Kubernetes?
+
+When you need to run many different containers with different images
+
+
+![the-why-and-what-of-kubernetes-1.png](./imgs/the-why-and-what-of-kubernetes-1.png)
