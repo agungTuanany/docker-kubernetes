@@ -946,3 +946,25 @@ database password.
 ## 077. IAM Keys for Deployment
 
 ![iam-keys-for-deployment-1.gif](./imgs/iam-keys-for-deployment-1.gif)
+
+## 078. Travis Deploy Script
+
+![travis-deploy-script-1.gif](./imgs/travis-deploy-script-1.gif)
+
+eg:
+```yaml
+# add this in .travis.yml
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: <your-bucket-name>
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
+```
