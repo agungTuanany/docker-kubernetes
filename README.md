@@ -943,3 +943,6 @@ database password.
 
 - ElastiCache Redis at **Primary Endpoint**, we do not copy the port.
 
+## 077. IAM Keys for Deployment
+
+![iam-keys-for-deployment-1.gif](./imgs/iam-keys-for-deployment-1.gif)
