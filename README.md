@@ -3,10 +3,6 @@
 This course from Stephen teach how to create and deploy any web apps into a Web
 services.
 
-## Index
-
-###  [kubernetes](#==-kubernetes-==)
-
 # What is Docker?
 
 Docker is a platform or ecosystem around creating and running containers
@@ -997,5 +993,14 @@ machines
 
 When you need to run many different containers with different images
 
-
 ![the-why-and-what-of-kubernetes-1.png](./imgs/the-why-and-what-of-kubernetes-1.png)
+
+## 081. Kubernetes in Development and Production
+
+![kubernetes-in-development-and-production-1.gif](./imgs/kubernetes-in-development-and-production-1.gif)
+
+```
+minikube  # a command line tools to setup a tiny kubernetes cluster
+
+kubectl   # is a program use to interact kubernetes cluster in general
+```
