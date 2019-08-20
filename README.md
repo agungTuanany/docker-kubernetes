@@ -978,7 +978,7 @@ deploy:
 
 ![cleaning-up-aws-resources-1.gif](./imgs/cleaning-up-aws-resources-1.gif)
 
-# == kubernetes ==
+# == Kubernetes ==
 
 ![the-why-and-what-of-kubernetes-1.gif](./imgs/the-why-and-what-of-kubernetes-1.gif)
 
@@ -1004,3 +1004,7 @@ minikube  # a command line tools to setup a tiny kubernetes cluster
 
 kubectl   # is a program use to interact kubernetes cluster in general
 ```
+
+## 082. Mapping Existing Knowledge
+
+![mapping-existing-knowledge-1.gif](./imgs/mapping-existing-knowledge-1.gif)
