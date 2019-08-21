@@ -1008,3 +1008,11 @@ kubectl   # is a program use to interact kubernetes cluster in general
 ## 082. Mapping Existing Knowledge
 
 ![mapping-existing-knowledge-1.gif](./imgs/mapping-existing-knowledge-1.gif)
+
+## 083. Adding Configuration file
+
+```
+k8s   # a convention term | abbervation for kubernetes
+```
+[client-pod.yaml](./simplek8s/client-pod.yaml)
+[client-node-port.yaml](./simplek8s/client-node-port.yaml)

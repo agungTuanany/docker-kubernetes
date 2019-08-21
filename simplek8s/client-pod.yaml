@@ -1,0 +1,14 @@
+# Make one config file to create the container
+
+apiVersion: v1
+kind: pot
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  containers:
+    - name: client
+      image: tuanany73/multi-client
+      ports:
+        - containerPort: 3000
