@@ -1018,12 +1018,13 @@ k8s   # a convention term | abbervation for kubernetes
 
 [client-node-port.yaml](./simplek8s/client-node-port.yaml)
 
+![object-types-and-api-version-1.gif](./imgs/object-types-and-api-version-1.gif)
+
 explanation config file
 
 ```
 apiVersion: v1          # scope or limits the type of object
 kind: Service | Pod     # a specific type of object
-
 ```
 
 when we make config file kubernetes we not quite making a **container** me make
@@ -1052,3 +1053,35 @@ object have slightly different purpose
 **Q**: what is object types Service use for?
 
 **A**: a Service use for up networking
+
+## 084. Running Containers in Pods
+
+![running-containers-in-pods-1.gif](./imgs/running-containers-in-pods-1.gif)
+
+When we start to load-up the configuration file into **kubectl** is going to
+create a **Pod** inside Virtual-Machine (we refer VM as a Node). A **Pod** it
+self it's a grouping of containers with very common purpose.
+
+**Q**: We might be wondering why me making a **Pod** that has a grouping a container?
+
+**A**: In the kubernetes world there is no such think as just creating
+a container on a cluster
+
+back with **EB**, **docker-compose** we were creating containers really old-day
+no shoe what so ever. In the world kubernetes we do not have the ability to just
+run one naked single container by it self with no associated over had. The
+smallest think you can deploy is a **Pod**.
+
+It always to be declare or deploying containers within a **Pod**, as the
+smallest think we can deploy to run a single container.
+
+**Q**: why me make a **Pod**?
+
+**A**: we cannot deploy individual containers by them self as we could with
+docker-compose, DB requirement of a **Pod** we must run one or more containers
+inside of it.
+
+In the world of **Pod** we start to grouping together containers that have
+a very discrete or very tightly couple relationship, in other words these
+are containers absolutely have a tight immigration and must be executed with each
+others.
