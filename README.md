@@ -1015,4 +1015,40 @@ kubectl   # is a program use to interact kubernetes cluster in general
 k8s   # a convention term | abbervation for kubernetes
 ```
 [client-pod.yaml](./simplek8s/client-pod.yaml)
+
 [client-node-port.yaml](./simplek8s/client-node-port.yaml)
+
+explanation config file
+
+```
+apiVersion: v1          # scope or limits the type of object
+kind: Service | Pod     # a specific type of object
+
+```
+
+when we make config file kubernetes we not quite making a **container** me make
+something different we make an **object**.
+
+**Q**: what is an object is on kubernetes?
+
+**A**: a config file we set (make) the term object is refer to a **think** that
+exist inside at kubernetes cluster, so we don't specifically says we make an
+object so much, reality we make specific **type of object**
+
+**Q**: what is an object use for on kubernetes?
+
+**A**: object is essentially think that going to be created inside kuberntes cluster
+to get application to work the way we might expect. Every object or type of
+object have slightly different purpose
+
+**Q**: what is Object types of Pod use for?
+
+**A**: a Pod use to running a container
+
+**Q**: what is object types ReplicaController use for?
+
+**A**: a ReplicaController use for monitoring a container
+
+**Q**: what is object types Service use for?
+
+**A**: a Service use for up networking
