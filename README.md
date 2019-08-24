@@ -1023,8 +1023,12 @@ k8s   # a convention term | abbervation for kubernetes
 explanation config file
 
 ```
-apiVersion: v1          # scope or limits the type of object
-kind: Service | Pod     # a specific type of object
+apiVersion: v1            # scope or limits the type of object
+kind: Pod                 # a specific type of object
+metadata: client-pod      # most of use is for logging purposes
+  name: client-pod
+  labels:
+    component: web        # a label selector system to connect with client-node-port.yaml
 ```
 
 when we make config file kubernetes we not quite making a **container** me make
@@ -1085,3 +1089,46 @@ In the world of **Pod** we start to grouping together containers that have
 a very discrete or very tightly couple relationship, in other words these
 are containers absolutely have a tight immigration and must be executed with each
 others.
+
+## 085. Service Config Files in Depth
+
+![service-config-files-in-depth-1.gif](./imgs/service-config-files-in-depth-1.gif)
+
+We use this Second object (**service**) types any times we want to setup some amount of
+networking inside of kubernetes cluster.
+
+eg:
+```yaml
+# client-node-port.yaml
+
+apiVersion: V1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  types: NodePort
+  ports:
+    - port: 3050
+      targetPort: 3000
+      nodePort: 31515     # Expose a container to the outside world | for dev environment purpose
+  selector:               # a label-selector-system
+    component: web
+```
+
+```
+kube-proxy      # a single window to the outside world
+```
+rather then referring to the **Service** to connect to the **client-pod.yaml**,
+we instead using in kubernetes **label-selector-system**. To connect between
+**client-node-port.yaml** with **client-pod.yaml**
+
+A **component: web** is arbitrary key-value pair.
+
+A **targetPort: 3000** is identical to the **containerPort: 3000** over the
+**Pod** definition
+
+A **nodePort** the most IMPORTANT is to communicated between developer to access
+**multi-client Pod**
+
+
+

@@ -1,7 +1,7 @@
 # Make one config file to create the container
 
 apiVersion: v1
-kind: pot
+kind: Pod
 metadata:
   name: client-pod
   labels:
