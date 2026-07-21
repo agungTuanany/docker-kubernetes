@@ -16,7 +16,7 @@
   "author": "Agung Tuanany",
   "license": "MIT",
   "dependencies": {
-    "nodemon": "^1.19.1",
+    "nodemon": "^3.1.14",
     "redis": "^2.8.0"
   }
 }
